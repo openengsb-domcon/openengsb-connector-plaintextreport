@@ -24,6 +24,7 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 import org.mockito.Mockito;
+import org.openengsb.core.api.Domain;
 import org.openengsb.domain.report.common.ReportStore;
 import org.openengsb.domain.report.common.ReportStoreFactory;
 
@@ -36,7 +37,10 @@ public class PlaintextReportFactoryTest {
         PlaintextReportFactory factory = new PlaintextReportFactory(storeFactory);
 
         Map<String, String> attributes = new HashMap<String, String>();
-        PlaintextReportService reportService = factory.createServiceInstance("id", attributes);
+        Domain instance = factory.createNewInstance("id");
+        factory.applyAttributes(instance, attributes);
+
+        PlaintextReportService reportService = (PlaintextReportService) instance;
 
         Assert.assertNotNull(reportService);
         Assert.assertNotNull(reportService.getStore());

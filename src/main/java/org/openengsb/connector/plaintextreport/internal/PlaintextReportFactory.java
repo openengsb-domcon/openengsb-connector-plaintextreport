@@ -17,18 +17,13 @@
 
 package org.openengsb.connector.plaintextreport.internal;
 
-import java.util.HashMap;
 import java.util.Map;
 
-import org.openengsb.core.api.ServiceInstanceFactory;
-import org.openengsb.core.api.descriptor.ServiceDescriptor;
-import org.openengsb.core.api.descriptor.ServiceDescriptor.Builder;
-import org.openengsb.core.api.validation.MultipleAttributeValidationResult;
-import org.openengsb.core.api.validation.MultipleAttributeValidationResultImpl;
-import org.openengsb.domain.report.ReportDomain;
+import org.openengsb.core.api.Domain;
+import org.openengsb.core.common.AbstractConnectorInstanceFactory;
 import org.openengsb.domain.report.common.ReportStoreFactory;
 
-public class PlaintextReportFactory implements ServiceInstanceFactory<ReportDomain, PlaintextReportService> {
+public class PlaintextReportFactory extends AbstractConnectorInstanceFactory<PlaintextReportService> {
 
     private final ReportStoreFactory storeFactory;
 
@@ -37,37 +32,14 @@ public class PlaintextReportFactory implements ServiceInstanceFactory<ReportDoma
     }
 
     @Override
-    public ServiceDescriptor getDescriptor(Builder builder) {
-        builder.name("plaintextReport.name").description("plaintextReport.description");
-        return builder.build();
-    }
-
-    @Override
-    public void updateServiceInstance(PlaintextReportService instance, Map<String, String> attributes) {
-        setAttributes(instance, attributes);
-    }
-
-    @Override
-    public PlaintextReportService createServiceInstance(String id, Map<String, String> attributes) {
+    public Domain createNewInstance(String id) {
         PlaintextReportService service = new PlaintextReportService(id);
         service.setStore(storeFactory.createReportStore(id));
-        setAttributes(service, attributes);
         return service;
     }
 
-    private void setAttributes(PlaintextReportService service, Map<String, String> attributes) {
+    @Override
+    public void doApplyAttributes(PlaintextReportService instance, Map<String, String> attributes) {
         // do nothing - currently no attributes defined
     }
-
-    @Override
-    public MultipleAttributeValidationResult updateValidation(PlaintextReportService instance,
-            Map<String, String> attributes) {
-        return new MultipleAttributeValidationResultImpl(true, new HashMap<String, String>());
-    }
-
-    @Override
-    public MultipleAttributeValidationResult createValidation(String id, Map<String, String> attributes) {
-        return new MultipleAttributeValidationResultImpl(true, new HashMap<String, String>());
-    }
-
 }
