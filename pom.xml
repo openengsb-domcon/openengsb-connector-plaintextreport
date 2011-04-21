@@ -18,7 +18,8 @@
 
 -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <parent>
     <groupId>org.openengsb.connector</groupId>
@@ -69,22 +70,32 @@
   </build>
 
   <dependencies>
+    <!-- OpenEngSB Dependencies -->
     <dependency>
       <groupId>org.openengsb.core</groupId>
-      <artifactId>openengsb-core-common</artifactId>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.openengsb.domain</groupId>
-      <artifactId>openengsb-domain-report</artifactId>
+      <artifactId>openengsb-core-api</artifactId>
       <version>${openengsb.version}</version>
       <scope>provided</scope>
     </dependency>
-
     <dependency>
       <groupId>org.openengsb.core</groupId>
+      <artifactId>openengsb-core-common</artifactId>
+      <version>${openengsb.version}</version>
+      <scope>provided</scope>
+    </dependency>
+        <dependency>
+      <groupId>org.openengsb.core</groupId>
       <artifactId>openengsb-core-test</artifactId>
+      <version>${openengsb.version}</version>
       <scope>test</scope>
+    </dependency>
+
+    <!-- Parent Domains -->
+    <dependency>
+      <groupId>org.openengsb.domain</groupId>
+      <artifactId>openengsb-domain-report</artifactId>
+      <version>1.2.0-SNAPSHOT</version>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 </project>
