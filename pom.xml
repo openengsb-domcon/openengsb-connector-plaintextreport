@@ -27,10 +27,11 @@
     <version>1.2.0.M5</version>
   </parent>
 
-
   <properties>
     <bundle.symbolicName>org.openengsb.connector.plaintextreport</bundle.symbolicName>
     <bundle.namespace>org.openengsb.connector.plaintextreport</bundle.namespace>
+    <openengsb.domain.report.version>1.2.0-SNAPSHOT</openengsb.domain.report.version>
+    <openengsb.domain.report.range>(1.2.0,1.3.0]</openengsb.domain.report.range>
   </properties>
 
   <modelVersion>4.0.0</modelVersion>
@@ -70,32 +71,32 @@
   </build>
 
   <dependencies>
-    <!-- OpenEngSB Dependencies -->
+    <!-- OpenEngSB Core References -->
     <dependency>
       <groupId>org.openengsb.core</groupId>
       <artifactId>openengsb-core-api</artifactId>
-      <version>${openengsb.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.openengsb.core</groupId>
       <artifactId>openengsb-core-common</artifactId>
-      <version>${openengsb.version}</version>
       <scope>provided</scope>
     </dependency>
-        <dependency>
+    <dependency>
       <groupId>org.openengsb.core</groupId>
       <artifactId>openengsb-core-test</artifactId>
       <version>${openengsb.version}</version>
       <scope>test</scope>
     </dependency>
 
-    <!-- Parent Domains -->
+    <!-- OpenEngSB Domain References -->
     <dependency>
       <groupId>org.openengsb.domain</groupId>
       <artifactId>openengsb-domain-report</artifactId>
-      <version>1.2.0-SNAPSHOT</version>
+      <version>${openengsb.domain.report.version}</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>
+
 </project>
+
