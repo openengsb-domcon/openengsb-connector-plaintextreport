@@ -1,3 +1,20 @@
+openengsb-connector-plaintextreport-1.2.1 2011-05-24
+---------------------------------------------------------------------
+
+First maintenance release of the Plaintext Report Connector upgrading to latest report and openengsb framework. In addition this release contains a bundle.info file.
+
+** Library Upgrade
+    * [OPENENGSB-1497] - Upgrade openengsb-domain-report to 1.2.1
+    * [OPENENGSB-1508] - Push connectors and domains to latest openengsb-framework-1.3.0.M1
+    * [OPENENGSB-1609] - Upgrade openengsb-framework to 1.3.0.M2
+
+** New Feature
+    * [OPENENGSB-948] - Add OSGI-INF/bundle.info as used in Karaf to the openengsb bundles
+
+** Task
+    * [OPENENGSB-1460] - Release openengsb-connector-plaintextreport-1.2.1
+
+
 openengsb-connector-plaintextreport-1.2.0 2011-04-27
 ---------------------------------------------------------------------
 
