@@ -28,8 +28,8 @@ import java.util.UUID;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openengsb.domain.report.common.SimpleReportPart;
 import org.openengsb.domain.report.model.ReportPart;
-import org.openengsb.domain.report.model.SimpleReportPart;
 
 public abstract class ReportPartStoreTest {
 
