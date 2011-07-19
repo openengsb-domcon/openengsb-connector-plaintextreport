@@ -19,20 +19,27 @@ package org.openengsb.connector.plaintextreport.internal;
 
 import java.util.Map;
 
-import org.openengsb.core.api.Domain;
+import org.openengsb.core.api.Connector;
+import org.openengsb.core.api.ekb.EngineeringKnowledgeBaseService;
 import org.openengsb.core.common.AbstractConnectorInstanceFactory;
+import org.openengsb.domain.report.ReportDomainEvents;
 import org.openengsb.domain.report.common.ReportStoreFactory;
 
 public class PlaintextReportFactory extends AbstractConnectorInstanceFactory<PlaintextReportService> {
 
     private final ReportStoreFactory storeFactory;
+    
+    @SuppressWarnings("unused")
+    private ReportDomainEvents reportEvents;
+    @SuppressWarnings("unused")
+    private EngineeringKnowledgeBaseService ekbService;
 
     public PlaintextReportFactory(ReportStoreFactory storeFactory) {
         this.storeFactory = storeFactory;
     }
 
     @Override
-    public Domain createNewInstance(String id) {
+    public Connector createNewInstance(String id) {
         PlaintextReportService service = new PlaintextReportService(id);
         service.setStore(storeFactory.createReportStore(id));
         return service;
@@ -41,5 +48,13 @@ public class PlaintextReportFactory extends AbstractConnectorInstanceFactory<Pla
     @Override
     public void doApplyAttributes(PlaintextReportService instance, Map<String, String> attributes) {
         // do nothing - currently no attributes defined
+    }
+    
+    public void setEkbService(EngineeringKnowledgeBaseService ekbService) {
+        this.ekbService = ekbService;
+    }
+
+    public void setReportEvents(ReportDomainEvents reportEvents) {
+        this.reportEvents = reportEvents;
     }
 }
