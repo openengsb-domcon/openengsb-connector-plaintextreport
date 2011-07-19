@@ -19,18 +19,44 @@ package org.openengsb.connector.plaintextreport.internal;
 
 import org.openengsb.domain.report.model.ReportPart;
 
-public class StringReportPart extends ReportPart {
+public class StringReportPart implements ReportPart {
 
     private String content;
+    private String partName;
+    private String contentType;
 
     public StringReportPart(String partName, String contentType, String content) {
-        super(partName, contentType);
         this.content = content;
+        this.contentType = contentType;
+        this.partName = partName;
     }
 
     @Override
     public byte[] getContent() {
         return content.getBytes();
     }
-
+    
+    @Override
+    public void setPartName(String partName) {
+        this.partName = partName;
+    }
+    
+    @Override
+    public String getPartName() {
+        return partName;
+    }
+    
+    @Override
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
+    }
+    
+    @Override
+    public String getContentType() {
+        return contentType;
+    }
+    
+    @Override
+    public void setContent(byte[] content) {
+    }
 }

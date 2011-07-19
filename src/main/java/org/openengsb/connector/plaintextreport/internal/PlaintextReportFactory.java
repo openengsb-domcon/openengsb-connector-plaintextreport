@@ -31,7 +31,6 @@ public class PlaintextReportFactory extends AbstractConnectorInstanceFactory<Pla
     
     @SuppressWarnings("unused")
     private ReportDomainEvents reportEvents;
-    @SuppressWarnings("unused")
     private EngineeringKnowledgeBaseService ekbService;
 
     public PlaintextReportFactory(ReportStoreFactory storeFactory) {
@@ -42,6 +41,7 @@ public class PlaintextReportFactory extends AbstractConnectorInstanceFactory<Pla
     public Connector createNewInstance(String id) {
         PlaintextReportService service = new PlaintextReportService(id);
         service.setStore(storeFactory.createReportStore(id));
+        service.setEkbService(ekbService);
         return service;
     }
 
