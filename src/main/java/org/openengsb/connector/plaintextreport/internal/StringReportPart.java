@@ -17,6 +17,9 @@
 
 package org.openengsb.connector.plaintextreport.internal;
 
+import java.util.List;
+
+import org.openengsb.core.api.model.OpenEngSBModelEntry;
 import org.openengsb.domain.report.model.ReportPart;
 
 public class StringReportPart implements ReportPart {
@@ -58,5 +61,18 @@ public class StringReportPart implements ReportPart {
     
     @Override
     public void setContent(byte[] content) {
+    }
+
+    @Override
+    public void addOpenEngSBModelEntry(OpenEngSBModelEntry arg0) {
+    }
+
+    @Override
+    public List<OpenEngSBModelEntry> getOpenEngSBModelEntries() {
+        return null;
+    }
+
+    @Override
+    public void removeOpenEngSBModelEntry(String arg0) {
     }
 }
