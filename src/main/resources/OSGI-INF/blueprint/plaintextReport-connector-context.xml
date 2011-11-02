@@ -31,7 +31,9 @@
     </service-properties>
     <bean class="org.openengsb.connector.plaintextreport.internal.PlaintextReportFactory">
       <argument>
-        <bean class="org.openengsb.domain.report.common.FileSystemReportStoreFactory" />
+        <bean class="org.openengsb.domain.report.common.FileSystemReportStoreFactory">
+          <property name="ekbService" ref="ekbService" />
+        </bean>
       </argument>
       <property name="reportEvents" ref="reportEvents" />
       <property name="ekbService" ref="ekbService" /> 
