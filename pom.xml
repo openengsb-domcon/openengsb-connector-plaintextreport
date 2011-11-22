@@ -130,7 +130,7 @@
     <!-- OpenEngSB Domain References -->
     <dependency>
       <groupId>org.openengsb.domain</groupId>
-      <artifactId>openengsb-domain-report</artifactId>
+      <artifactId>org.openengsb.domain.report</artifactId>
       <version>${openengsb.domain.version}</version>
       <scope>provided</scope>
     </dependency>
