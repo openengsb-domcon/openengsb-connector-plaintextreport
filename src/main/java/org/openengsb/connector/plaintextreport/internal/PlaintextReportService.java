@@ -31,7 +31,7 @@ import java.util.UUID;
 
 import org.openengsb.core.api.AliveState;
 import org.openengsb.core.api.Event;
-import org.openengsb.core.api.ekb.EngineeringKnowledgeBaseService;
+import org.openengsb.core.common.util.ModelUtils;
 import org.openengsb.domain.report.NoSuchReportException;
 import org.openengsb.domain.report.common.AbstractReportDomain;
 import org.openengsb.domain.report.model.Report;
@@ -44,7 +44,6 @@ public class PlaintextReportService extends AbstractReportDomain {
     private Set<String> activeReportDataCollections = new HashSet<String>();
 
     private ReportPartStore partStore = new InMemoryReportPartStore();
-    private EngineeringKnowledgeBaseService ekbService;
 
     public PlaintextReportService(String id) {
         super(id);
@@ -110,7 +109,7 @@ public class PlaintextReportService extends AbstractReportDomain {
 
     private Report doGenerateReport(String reportName, String reportId) {
         List<ReportPart> parts = partStore.getParts(reportId);
-        Report report = ekbService.createEmptyModelObject(Report.class);
+        Report report = ModelUtils.createEmptyModelObject(Report.class);
         report.setName(reportName);
         report.setParts(parts);
         return report;
@@ -150,9 +149,4 @@ public class PlaintextReportService extends AbstractReportDomain {
     private String generatePartName(Event e) {
         return e.getClass().getName() + " - " + new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss").format(new Date());
     }
-    
-    public void setEkbService(EngineeringKnowledgeBaseService ekbService) {
-        this.ekbService = ekbService;
-    }
-
 }

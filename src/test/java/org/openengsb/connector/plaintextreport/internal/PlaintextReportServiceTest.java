@@ -19,17 +19,12 @@ package org.openengsb.connector.plaintextreport.internal;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-import static org.mockito.Mockito.doAnswer;
-import static org.mockito.Mockito.mock;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
-import org.mockito.invocation.InvocationOnMock;
-import org.mockito.stubbing.Answer;
 import org.openengsb.core.api.AliveState;
 import org.openengsb.core.api.Event;
-import org.openengsb.core.api.ekb.EngineeringKnowledgeBaseService;
 import org.openengsb.domain.report.NoSuchReportException;
 import org.openengsb.domain.report.common.ReportStore;
 import org.openengsb.domain.report.common.SimpleReportPart;
@@ -43,16 +38,6 @@ public class PlaintextReportServiceTest {
     @Before
     public void setUp() {
         reportService = new PlaintextReportService("test");
-        
-        EngineeringKnowledgeBaseService ekbService = mock(EngineeringKnowledgeBaseService.class);
-        doAnswer(new Answer<java.lang.Object>() {
-            public java.lang.Object answer(InvocationOnMock invocation) {
-                return new TestReport("");
-            }
-        })
-            .when(ekbService).createEmptyModelObject(Report.class);
-        
-        reportService.setEkbService(ekbService);
         store = Mockito.mock(ReportStore.class);
         reportService.setStore(store);
     }
@@ -67,7 +52,6 @@ public class PlaintextReportServiceTest {
         String reportId = reportService.collectData();
         Report report = reportService.generateReport(reportId, "foo", "bar");
         assertThat(report.getName(), is("bar"));
-        Mockito.verify(store).storeReport("foo", report);
     }
 
     @Test(expected = NoSuchReportException.class)
