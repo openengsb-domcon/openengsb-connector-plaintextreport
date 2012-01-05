@@ -32,10 +32,10 @@ import java.util.UUID;
 import org.openengsb.core.api.AliveState;
 import org.openengsb.core.api.Event;
 import org.openengsb.core.common.util.ModelUtils;
+import org.openengsb.domain.report.AbstractReportDomain;
 import org.openengsb.domain.report.NoSuchReportException;
-import org.openengsb.domain.report.common.AbstractReportDomain;
-import org.openengsb.domain.report.model.Report;
-import org.openengsb.domain.report.model.ReportPart;
+import org.openengsb.domain.report.Report;
+import org.openengsb.domain.report.ReportPart;
 
 public class PlaintextReportService extends AbstractReportDomain {
 

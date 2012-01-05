@@ -20,7 +20,7 @@ package org.openengsb.connector.plaintextreport.internal;
 import java.util.List;
 
 import org.openengsb.core.api.model.OpenEngSBModelEntry;
-import org.openengsb.domain.report.model.ReportPart;
+import org.openengsb.domain.report.ReportPart;
 
 public class StringReportPart implements ReportPart {
 

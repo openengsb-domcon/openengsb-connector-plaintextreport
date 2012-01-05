@@ -25,8 +25,8 @@ import junit.framework.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
 import org.openengsb.core.api.Connector;
-import org.openengsb.domain.report.common.ReportStore;
-import org.openengsb.domain.report.common.ReportStoreFactory;
+import org.openengsb.domain.report.ReportStore;
+import org.openengsb.domain.report.ReportStoreFactory;
 
 public class PlaintextReportFactoryTest {
     @Test

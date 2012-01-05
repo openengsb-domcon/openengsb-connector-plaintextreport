@@ -26,9 +26,9 @@ import org.mockito.Mockito;
 import org.openengsb.core.api.AliveState;
 import org.openengsb.core.api.Event;
 import org.openengsb.domain.report.NoSuchReportException;
-import org.openengsb.domain.report.common.ReportStore;
-import org.openengsb.domain.report.common.SimpleReportPart;
-import org.openengsb.domain.report.model.Report;
+import org.openengsb.domain.report.Report;
+import org.openengsb.domain.report.ReportStore;
+import org.openengsb.domain.report.SimpleReportPart;
 
 public class PlaintextReportServiceTest {
 
